@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--修改struts默认常量-->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>  <!--处理乱码-->
+<!--    <package name="hellodemo" extends="struts-default" namespace="/">
+        &lt;!&ndash;name: 访问名称&ndash;&gt;
+        <action name="hello" class="com.wbz.HelloAction">
+        &lt;!&ndash;配置方法的返回值到页面&ndash;&gt;
+           &lt;!&ndash; <result name="ok">/index.jsp</result>&ndash;&gt;
+        </action>
+    </package>-->
+
+
+<!-- 配置action的方法访问。使用method配置,缺陷，每个action方法都需要配置&ndash;&gt;
+    <package name="methoddemo" extends="struts-default" namespace="/">
+        &lt;!&ndash;有method属性，写要执行的action里面的名称&ndash;&gt;
+        <action name="addAction" class="com.wbz.method.PageAction" method="add">
+
+        </action>
+        &lt;!&ndash;执行update方法&ndash;&gt;
+        <action name="updateAction" class="com.wbz.method.PageAction" method="update">
+
+        </action>
+        </package>
+        -->
+    <!--使用通配符的方式配置-->
+ <!--   <package name="methoddemo" extends="struts-default" namespace="/">
+        &lt;!&ndash;methon属性写*值&ndash;&gt;
+        <action name="book_*" class="com.wbz.method.PageAction" method="{1}" >
+        </action>
+    </package>-->
+<!--    <package name="demo" extends="struts-default" namespace="/">
+       &lt;!&ndash; &lt;!&ndash;全局结果页面配置&ndash;&gt;  &lt;!&ndash;局部结果页面优先级大于全局结果页面&ndash;&gt;
+        <global-results>
+            <result name="success" type="redirect">/hello.jsp</result>
+        </global-results>&ndash;&gt;
+    <action name="book" class="com.wbz.page.PageAction">
+        &lt;!&ndash;局部结果页面&ndash;&gt;
+            <result name="success" type="redirectAction">order</result>   重定向的方式请求到其他的action
+        </action>
+        <action name="order" class="com.wbz.page.OrdersAction">
+            <result name="success">/world.jsp</result>
+        </action>
+    </package>-->
+    <!--获取表单提交的数据-->
+<!--    <package name="demo1" extends="struts-default" namespace="/">
+        <action name="mapaction" class="com.wbz.getdata.MapAction">
+
+        </action>
+    </package>-->
+    <package name="demo1" extends="struts-default" namespace="/">
+        <action name="form4" class="com.wbz.getdata.Form4"> </action>
+        <!--<action name="useraction" class="day02.ognl.UserAction"/>
+        <action name="valueStackAction" class="day02.ognl.ValueStackAction">
+            <result name="success">/valueStack.jsp</result>
+        </action>-->
+        <action name="objectAction" class="day02.ognl.ObjectDemo">
+            <result name="success">/valueStack.jsp</result>
+        </action>
+        <action name="objecttolist" class="day02.ognl.ObjecttoList">
+            <result name="success">/valueStack.jsp</result>
+        </action>
+        <action name="stackvaluegetstring" class="day02.ognl.ValueStackgetString">
+            <result name="success">/valueStack.jsp</result>
+        </action>
+        <action name="stackvaluegetobject" class="day02.ognl.ValueStackgetObject">
+            <result name="success">/valueStack.jsp</result>
+        </action>
+        <action name="stackvaluegetlist" class="day02.ognl.ValueStackgetList">
+            <result name="success">/valueStack.jsp</result>
+        </action>
+        <action name="setAndpush" class="day02.ognl.setAndpushAdddatainStackValue">
+            <result name="success">/valueStack.jsp</result>
+        </action>
+        <action name="contextaction" class="day02.ognl.ContextAction">
+            <result name="success">/contextaction.jsp</result>
+        </action>
+    </package>
+</struts>
